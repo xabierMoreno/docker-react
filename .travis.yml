@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t xabimoreno/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run xabimoreno/docker-react npm run test -- --coverage
+
